@@ -1,0 +1,24 @@
+Simplest and dump command line option parser for Scala.
+
+Usage:
+
+  object MyApp {
+    import ru.braintrace.optionparser.OptionParser
+
+    def main(args: Array[String]) {
+      val p = new OptionParser
+      p.addOption("o", Some("option"))
+      p.addFlagOption("f", Some("flag"))
+
+      val (options, args) = p.parseArgs(args)
+
+      val option: Option[String] = options.get("o") // or options.get("option")
+      // ...
+
+      if (options.get("flag").isDefined) { // or options.get("f")
+        // ...
+      }
+    }
+  }
+
+That's all.
